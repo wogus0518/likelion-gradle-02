@@ -14,7 +14,7 @@ class BracketTest {
         Boolean[] answer = new Boolean[inputs.length];
         Boolean[] result = new Boolean[]{true, true, false, false};
 
-        Bracket bracket = new Bracket();
+        BracketWithStack bracket = new BracketWithStack();
 
         for (int i = 0; i < inputs.length; i++) {
             answer[i] = bracket.solution(inputs[i]);

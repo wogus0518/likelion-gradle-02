@@ -1,6 +1,6 @@
 package codelion.likeliongradle.algorithm.programmers;
 
-public class Bracket {
+public class BracketWithOutStack {
     boolean solution(String input) {
         boolean answer = true;
         int cnt = 0;
