@@ -16,20 +16,24 @@ public class Knum {
 class Solution {
     public int[] solution(int[] array, int[][] commands) {
         int[] answer = new int[commands.length];
+
         for (int i = 0; i < commands.length; i++) {
             int[] command = commands[i];
             int start = command[0];
             int end = command[1];
             int k = command[2];
+
             ArrayList<Integer> integers = new ArrayList<>();
             for (int j = 0; j < array.length; j++) {
                 if ((start - 1) <= j && j <= (end - 1)) {
                     integers.add(array[j]);
                 }
             }
+
             integers.sort(Comparator.naturalOrder());
             answer[i] = integers.get(k - 1);
         }
+
         return answer;
     }
 }
