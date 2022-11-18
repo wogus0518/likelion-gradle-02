@@ -2,27 +2,26 @@ package codelion.likeliongradle.algorithm.programmers;
 
 public class CaesarCipher {
 
-    //a-z => 97-122
-    //A-Z => 65-90
-    //공백 => 32
     private static String solution(String s, int n) {
         String answer = "";
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
 
+            // 공백은 공백 그대로 추가
             if (c == ' ') {
                 answer += ' ';
                 continue;
             }
 
-            if (Character.isUpperCase(c)) answer = addCipher(65, 90, answer, c, n);
-            else if (Character.isLowerCase(c)) answer = addCipher(97, 122, answer, c, n);
+            if (Character.isUpperCase(c)) answer = addCipher('A', 'Z', answer, c, n);      // 대문자인 경우
+            else if (Character.isLowerCase(c)) answer = addCipher('a', 'z', answer, c, n); // 소문자인 경우
         }
         return answer;
     }
 
-    private static String addCipher(int start, int end, String answer, char c, int n) {
+    //문자 하나를 시저 암호화해서 추가하는 메서드
+    private static String addCipher(char start, char end, String answer, char c, int n) {
         char cipher = (char) (c + n);
 
         if (start <= cipher && cipher <= end) answer += cipher;
