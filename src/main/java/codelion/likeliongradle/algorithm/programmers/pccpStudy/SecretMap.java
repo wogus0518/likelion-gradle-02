@@ -8,16 +8,14 @@ public class SecretMap {
 
         String[] binaryString1 = toBinary(n, arr1);
         String[] binaryString2 = toBinary(n, arr2);
-//        System.out.println(Arrays.toString(binaryString1));
-//        System.out.println(Arrays.toString(binaryString2));
 
         for (int i = 0; i < n; i++) {
             String line = "";
             for (int j = 0; j < n; j++) {
                 if (binaryString1[i].charAt(j) == '0' && binaryString2[i].charAt(j) == '0') {
-                    line = line + " ";
+                    line += " ";
                 } else {
-                    line = line + "#";
+                    line += "#";
                 }
             }
             answer[i] = line;
@@ -39,6 +37,16 @@ public class SecretMap {
         }
         return binaryStrings;
     }
+
+//    private String[] toBinary(int n, int[] arr) {
+//        String[] binaryStrings = new String[n];
+//
+//        for (int i = 0; i < n; i++) {
+//            String binaryString = String.format("%0"+n+"d", Integer.parseInt(Integer.toBinaryString(arr[i])));
+//            binaryStrings[i] = binaryString;
+//        }
+//        return binaryStrings;
+//    }
 
     public static void main(String[] args) {
         SecretMap T = new SecretMap();
