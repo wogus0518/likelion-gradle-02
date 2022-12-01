@@ -1,21 +1,18 @@
 package codelion.likeliongradle.algorithm.programmers;
 
-import java.util.Arrays;
-
 public class Weapon {
 
     public int solution(int number, int limit, int power) {
         int answer = 0;
-        int[] arr = new int[number];
+        int[] arr = new int[number]; //약수 개수를 담을 배열
+
         for (int i = 1; i <= number; i++) {
             arr[i - 1] = getDivisorDigit(i);
         }
-//        System.out.println(Arrays.toString(arr));
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > limit) {
-                answer += power;
-            } else answer += arr[i];
+        for (int j : arr) {
+            if (j > limit) answer += power; //약수 개수가 limit보다 크면 power만큼 계산
+            else answer += j;               //아니면 그대로 약수 개수만큼 추가
         }
         return answer;
     }
